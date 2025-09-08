@@ -199,7 +199,6 @@
             font-size: 1.1em;
         }
         
-        /* ##### NEUE STILE FÜR DEN KOMMENTARBEREICH ##### */
         #comments-list {
             margin-bottom: 30px;
         }
@@ -227,7 +226,126 @@
             margin-top: 5px;
             margin-bottom: 0;
         }
+        
+        /* ##### STILE FÜR DEN SPENDENBEREICH (ANGEPASST) ##### */
+        #spenden-section {
+            background-color: transparent; /* Entfernt den weißen Kasten */
+            box-shadow: none; /* Entfernt den Schatten */
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
 
+        #spenden-section h2 {
+            text-align: center; /* Zentriert die Überschrift */
+            border-bottom: none; /* Entfernt die Trennlinie */
+            font-size: 1.8em;
+        }
+
+        .donation-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .donation-box {
+            flex: 1;
+            min-width: 220px; /* Boxen etwas schmaler gemacht */
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #fff; /* Boxen bleiben weiß für Kontrast */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Sehr dezenter Schatten */
+        }
+
+        .donation-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .paypal-button {
+            display: inline-block;
+            background-color: #ffc439;
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+        .paypal-button:hover {
+            transform: scale(1.05);
+        }
+
+        .bank-details {
+             width: 100%;
+        }
+        
+        .bank-details p {
+            margin: 5px 0;
+            text-align: left;
+        }
+        
+        .crypto-address {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            word-wrap: break-word;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .copy-btn {
+            background-color: #ddd;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+            font-size: 0.8em;
+        }
+
+        .copy-btn:hover {
+            background-color: #ccc;
+        }
+
+        .qr-code {
+            margin-top: 15px;
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .toggle-address-btn {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            font-size: 0.9em;
+            padding: 8px 15px;
+            margin-top: 15px;
+            font-weight: normal;
+        }
+
+        .toggle-address-btn:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .address-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .address-container.expanded {
+            max-height: 300px;
+        }
+        
         footer {
             text-align: center;
             padding: 20px;
@@ -304,21 +422,19 @@
             <span id="signature-count">14.283</span>
             <p>Menschen haben unterzeichnet!</p>
         </section>
-
+        
         <section class="content-section" id="comment-section">
             <h2>Kommentare & Meinungen</h2>
-            
             <div id="comments-list">
                 <div class="comment-item">
-                    <p class="comment-author">Tobias Kremer <span class="comment-date">vor 47 Minuten</span></p>
+                    <p class="comment-author">Tobias Kremer <span class="comment-date">vor 2 Tagen</span></p>
                     <p class="comment-text">Endlich sagt's mal einer! Dieses Komma sehe ich jeden Tag dutzendfach in meinen E-Mails. Super Initiative, habe direkt unterschrieben.</p>
                 </div>
                 <div class="comment-item">
-                    <p class="comment-author">Eric Windler <span class="comment-date">vor 1 Stunde</span></p>
+                    <p class="comment-author">Eric Windler <span class="comment-date">vor 5 Stunden</span></p>
                     <p class="comment-text">Stark! Es sind genau diese Kleinigkeiten, die einen professionellen Text ausmachen. Danke für die klare Darstellung!</p>
                 </div>
             </div>
-
             <h3>Ihr Kommentar:</h3>
             <form id="comment-form">
                 <div class="form-group">
@@ -333,6 +449,51 @@
             </form>
         </section>
 
+        <section class="content-section" id="spenden-section">
+            <h2>Unterstützen Sie diese Initiative</h2>
+            <p>Jeder Beitrag hilft, die Kosten für das Hosting zu decken und die Botschaft für eine korrekte Rechtschreibung weiter zu verbreiten. Vielen Dank für Ihre Unterstützung!</p>
+            
+            <div class="donation-options">
+                
+                <div class="donation-box">
+                    <h3>PayPal</h3>
+                    <p>Der einfachste und schnellste Weg, um zu spenden.</p>
+                    <a href="https://paypal.me/stauboo" target="_blank" rel="noopener noreferrer" class="paypal-button">Jetzt via PayPal spenden</a>
+                </div>
+
+                <div class="donation-box">
+                    <h3>Banküberweisung</h3>
+                    <div class="bank-details">
+                        <p><strong>Empfänger:</strong> Julian Staubermann</p>
+                        <p><strong>IBAN:</strong> DE09 3066 0000 8534 19</p>
+                        <p><strong>BIC:</strong> WELADEDNXXX</p>
+                        <p><strong>Bank:</strong> Sparkasse Neuss</p>
+                    </div>
+                </div>
+
+                <div class="donation-box">
+                    <h3>Bitcoin (BTC)</h3>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bitcoin:1Q8mX4zA7vUf9T2dFjLpWb6nKrZyCEoHtM" alt="Bitcoin QR Code" class="qr-code">
+                    <button class="toggle-address-btn">Walletadresse anzeigen</button>
+                    <div class="address-container">
+                         <p class="crypto-address" id="btc-address">1Q8mX4zA7vUf9T2dFjLpWb6nKrZyCEoHtM</p>
+                         <button class="copy-btn" data-target="btc-address">Adresse kopieren</button>
+                    </div>
+                </div>
+                
+                <div class="donation-box">
+                    <h3>Monero (XMR)</h3>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=monero:49tKpX2hF7GdVm3qZb9RwYpCs6eLnT4uJg5MnXq7fHv2EyPd9Kr6VwTe1LpQf7Zc3hLmPa9dHq2RkMt6Gv8NsWj3yHb9Pt4Q" alt="Monero QR Code" class="qr-code">
+                    <button class="toggle-address-btn">Walletadresse anzeigen</button>
+                    <div class="address-container">
+                        <p class="crypto-address" id="xmr-address">49tKpX2hF7GdVm3qZb9RwYpCs6eLnT4uJg5MnXq7fHv2EyPd9Kr6VwTe1LpQf7Zc3hLmPa9dHq2RkMt6Gv8NsWj3yHb9Pt4Q</p>
+                        <button class="copy-btn" data-target="xmr-address">Adresse kopieren</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <footer>
@@ -343,7 +504,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // ----- Code für die Petition -----
+            // ... Alter Code für Petition und Kommentare ...
             const petitionForm = document.getElementById('petition-form');
             const countElement = document.getElementById('signature-count');
             let currentCount = 14283;
@@ -369,43 +530,70 @@
                 }
             });
 
-            // ----- NEUER CODE FÜR DIE KOMMENTARE -----
             const commentForm = document.getElementById('comment-form');
             const commentsList = document.getElementById('comments-list');
             
             commentForm.addEventListener('submit', function(event) {
                 event.preventDefault();
-
                 const nameInput = document.getElementById('comment-name');
                 const bodyInput = document.getElementById('comment-body');
-                
                 const name = nameInput.value.trim();
                 const body = bodyInput.value.trim();
 
                 if (name && body) {
-                    // Neues Kommentar-Element erstellen
                     const newComment = document.createElement('div');
                     newComment.classList.add('comment-item');
-                    
                     const authorP = document.createElement('p');
                     authorP.classList.add('comment-author');
                     authorP.innerHTML = `${name} <span class="comment-date">gerade eben</span>`;
-                    
                     const textP = document.createElement('p');
                     textP.classList.add('comment-text');
                     textP.textContent = body;
-                    
                     newComment.appendChild(authorP);
                     newComment.appendChild(textP);
-                    
-                    // Kommentar oben in der Liste einfügen
                     commentsList.prepend(newComment);
-                    
-                    // Formular zurücksetzen
                     commentForm.reset();
                 } else {
                     alert('Bitte geben Sie einen Namen und einen Kommentar ein.');
                 }
+            });
+
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const addressElement = document.getElementById(targetId);
+                    const address = addressElement.textContent;
+                    
+                    navigator.clipboard.writeText(address).then(() => {
+                        const originalText = button.textContent;
+                        button.textContent = 'Kopiert!';
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Fehler beim Kopieren: ', err);
+                        alert('Fehler beim Kopieren der Adresse.');
+                    });
+                });
+            });
+            
+            // ----- NEUER CODE FÜR DIE AUSKLAPP-FUNKTION -----
+            const toggleButtons = document.querySelectorAll('.toggle-address-btn');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const container = button.nextElementSibling;
+                    container.classList.toggle('expanded');
+
+                    // Ändere den Button-Text basierend auf dem Zustand
+                    if (container.classList.contains('expanded')) {
+                        button.textContent = 'Walletadresse verbergen';
+                    } else {
+                        button.textContent = 'Walletadresse anzeigen';
+                    }
+                });
             });
         });
     </script>
