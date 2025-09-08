@@ -41,6 +41,27 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
+.slogan {
+            font-family: 'Montserrat', sans-serif; /* Gleiche Schriftart wie H1 für Konsistenz/Kraft */
+            font-weight: 800; /* Sehr fett */
+            font-size: 1.8em; /* Deutlich größer */
+            margin-top: 25px; /* Mehr Abstand zum oberen Text */
+            margin-bottom: 0; /* Kein Bodenabstand */
+            opacity: 1;
+            color: #ffda47; /* Ein kräftiges Gelb, das gut zu Blau passt */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Leichter Schatten für Tiefe */
+            line-height: 1.2; /* Engere Zeilenhöhe für kompakten Look */
+            letter-spacing: 0.05em; /* Leichter Zeichenabstand */
+        }
+
+        /* Anpassung für mobile Ansicht, damit es nicht zu groß wird */
+        @media (max-width: 768px) {
+            .slogan {
+                font-size: 1.4em; /* Etwas kleiner auf Handys */
+                margin-top: 20px;
+            }
+        }
+        
         header h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.8em;
@@ -221,7 +242,7 @@
         <div class="container">
             <h1>Schluss mit dem Komma-Chaos!</h1>
             <p>Eine Initiative für mehr Bildung und Klarheit in der deutschen Rechtschreibung.</p>
-            <p>Von Staubonaut, für die deutsche Rechtschreibung.</p>
+            <p class="slogan">Staubonaut. Ohne Komma, mit Verstand.</p>
         </div>
     </header>
 
