@@ -8,13 +8,21 @@
         /* Modernes Design mit Fokus auf Lesbarkeit */
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap');
 
+        :root {
+            --primary-color: #005a9c; /* Seriöses Blau */
+            --success-color: #28a745; /* Motivierendes Grün */
+            --danger-color: #c62828;  /* Klares Rot */
+            --light-grey: #f4f7f6;
+            --dark-text: #333;
+        }
+
         body {
             font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
+            background-color: var(--light-grey);
+            color: var(--dark-text);
+            line-height: 1.7; /* Leicht erhöhte Zeilenhöhe für bessere Lesbarkeit */
         }
 
         .container {
@@ -24,7 +32,7 @@
         }
 
         header {
-            background-color: #005a9c; /* Ein seriöses Blau */
+            background-color: var(--primary-color);
             color: #fff;
             text-align: center;
             padding: 40px 20px;
@@ -42,6 +50,7 @@
         header p {
             font-size: 1.2em;
             margin-top: 10px;
+            opacity: 0.9;
         }
 
         main {
@@ -58,7 +67,7 @@
 
         h2 {
             font-family: 'Montserrat', sans-serif;
-            color: #005a9c;
+            color: var(--primary-color);
             border-bottom: 2px solid #e0e0e0;
             padding-bottom: 10px;
             margin-top: 0;
@@ -69,24 +78,25 @@
             justify-content: space-around;
             margin: 20px 0;
             text-align: center;
+            gap: 20px; /* Besser als margin für Flexbox-Abstände */
             flex-wrap: wrap;
         }
 
         .example-box {
             padding: 20px;
             border-radius: 8px;
-            width: 45%;
-            margin-bottom: 10px;
+            flex: 1; /* Lässt Boxen gleichmäßig wachsen */
+            min-width: 250px; /* Verhindert zu starkes Schrumpfen */
         }
 
         .incorrect {
-            background-color: #ffebee; /* Helles Rot */
-            border: 2px solid #c62828;
-            color: #c62828;
+            background-color: #ffebee;
+            border: 2px solid var(--danger-color);
+            color: var(--danger-color);
         }
 
         .correct {
-            background-color: #e8f5e9; /* Helles Grün */
+            background-color: #e8f5e9;
             border: 2px solid #2e7d32;
             color: #2e7d32;
         }
@@ -122,17 +132,18 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
-            box-sizing: border-box; /* Wichtig für konsistente Breite */
+            box-sizing: border-box;
         }
 
         input[type="text"]:focus,
         input[type="email"]:focus {
             outline: none;
-            border-color: #005a9c;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(0, 90, 156, 0.3);
         }
 
         button {
-            background-color: #28a745; /* Ein motivierendes Grün */
+            background-color: var(--success-color);
             color: #fff;
             padding: 15px 20px;
             border: none;
@@ -140,11 +151,12 @@
             font-size: 1.2em;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         button:hover {
             background-color: #218838;
+            transform: translateY(-2px);
         }
 
         .counter-section {
@@ -157,7 +169,7 @@
         #signature-count {
             font-size: 3em;
             font-weight: bold;
-            color: #005a9c;
+            color: var(--primary-color);
             display: block;
         }
 
@@ -173,6 +185,34 @@
             color: #777;
             font-size: 0.9em;
         }
+
+        /* ############################################### */
+        /* ##### MOBILE OPTIMIERUNGEN (MEDIA QUERIES) #### */
+        /* ############################################### */
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em; /* Kleinere Überschrift auf dem Handy */
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+            
+            .container {
+                padding: 15px; /* Weniger seitlicher Abstand */
+            }
+
+            .content-section {
+                padding: 20px; /* Weniger Abstand in den Boxen */
+            }
+
+            /* Die Richtig/Falsch-Boxen werden gestapelt statt nebeneinander */
+            .example {
+                flex-direction: column;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -181,6 +221,7 @@
         <div class="container">
             <h1>Schluss mit dem Komma-Chaos!</h1>
             <p>Eine Initiative für mehr Bildung und Klarheit in der deutschen Rechtschreibung.</p>
+            <p>by Julian Staubermann</p>
         </div>
     </header>
 
@@ -188,7 +229,7 @@
         <section class="content-section">
             <h2>Worum geht es? Ein kleines Zeichen mit großer Wirkung.</h2>
             <p>Täglich werden unzählige E-Mails und Briefe verfasst. Ein Detail, das dabei häufig falsch gemacht wird, ist die Kommasetzung nach der Grußformel. Gemäß den Regeln der deutschen Rechtschreibung steht <strong>nach Grußformeln wie "Mit freundlichen Grüßen" oder "Viele Grüße" kein Komma.</strong></p>
-            <p>Dies mag wie eine Kleinigkeit erscheinen, doch es ist ein Zeichen für Sorgfalt und Professionalität. Falsche Zeichensetzung kann die Lesbarkeit stören und einen unprofessionellen Eindruck hinterlassen. Unsere Sprache ist ein wertvolles Gut – pflegen wir sie gemeinsam!</p> LG Staubi
+            <p>Dies mag wie eine Kleinigkeit erscheinen, doch es ist ein Zeichen für Sorgfalt und Professionalität. Falsche Zeichensetzung kann die Lesbarkeit stören und einen unprofessionellen Eindruck hinterlassen. Unsere Sprache ist ein wertvolles Gut – pflegen wir sie gemeinsam!</p>
         </section>
 
         <section class="content-section">
@@ -246,37 +287,26 @@
             const form = document.getElementById('petition-form');
             const countElement = document.getElementById('signature-count');
             
-            // Startwert für den Zähler (kann aus einer Datenbank geladen werden)
             let currentCount = 14281;
 
-            // Funktion zur Formatierung der Zahl mit Tausendertrennzeichen
             function formatNumber(num) {
                 return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
             }
 
-            // Zähler initial formatieren
             countElement.textContent = formatNumber(currentCount);
 
             form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Verhindert das Neuladen der Seite
+                event.preventDefault();
 
                 const vorname = document.getElementById('vorname').value;
                 const nachname = document.getElementById('nachname').value;
                 const email = document.getElementById('email').value;
 
                 if (vorname && nachname && email) {
-                    // Zähler erhöhen
                     currentCount++;
                     countElement.textContent = formatNumber(currentCount);
-
-                    // Formular zurücksetzen
                     form.reset();
-
-                    // Erfolgsmeldung anzeigen (optional)
                     alert('Vielen Dank für Ihre Unterstützung!');
-
-                    // Hier könnte der Code stehen, um die Daten an einen Server zu senden.
-                    // z.B. fetch('/api/sign', { method: 'POST', body: JSON.stringify({vorname, nachname, email}) });
                 } else {
                     alert('Bitte füllen Sie alle Felder aus.');
                 }
