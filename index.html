@@ -22,7 +22,7 @@
             padding: 0;
             background-color: var(--light-grey);
             color: var(--dark-text);
-            line-height: 1.7; /* Leicht erhöhte Zeilenhöhe für bessere Lesbarkeit */
+            line-height: 1.7;
         }
 
         .container {
@@ -41,27 +41,6 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-.slogan {
-            font-family: 'Montserrat', sans-serif; /* Gleiche Schriftart wie H1 für Konsistenz/Kraft */
-            font-weight: 800; /* Sehr fett */
-            font-size: 1.8em; /* Deutlich größer */
-            margin-top: 25px; /* Mehr Abstand zum oberen Text */
-            margin-bottom: 0; /* Kein Bodenabstand */
-            opacity: 1;
-            color: #ffda47; /* Ein kräftiges Gelb, das gut zu Blau passt */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Leichter Schatten für Tiefe */
-            line-height: 1.2; /* Engere Zeilenhöhe für kompakten Look */
-            letter-spacing: 0.05em; /* Leichter Zeichenabstand */
-        }
-
-        /* Anpassung für mobile Ansicht, damit es nicht zu groß wird */
-        @media (max-width: 768px) {
-            .slogan {
-                font-size: 1.4em; /* Etwas kleiner auf Handys */
-                margin-top: 20px;
-            }
-        }
-        
         header h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.8em;
@@ -72,6 +51,19 @@
             font-size: 1.2em;
             margin-top: 10px;
             opacity: 0.9;
+        }
+
+        .slogan {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8em;
+            margin-top: 25px;
+            margin-bottom: 0;
+            opacity: 1;
+            color: #ffda47;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            line-height: 1.2;
+            letter-spacing: 0.05em;
         }
 
         main {
@@ -99,15 +91,15 @@
             justify-content: space-around;
             margin: 20px 0;
             text-align: center;
-            gap: 20px; /* Besser als margin für Flexbox-Abstände */
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .example-box {
             padding: 20px;
             border-radius: 8px;
-            flex: 1; /* Lässt Boxen gleichmäßig wachsen */
-            min-width: 250px; /* Verhindert zu starkes Schrumpfen */
+            flex: 1;
+            min-width: 250px;
         }
 
         .incorrect {
@@ -147,17 +139,25 @@
         }
 
         input[type="text"],
-        input[type="email"] {
+        input[type="email"],
+        textarea {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
             box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
         }
 
         input[type="text"]:focus,
-        input[type="email"]:focus {
+        input[type="email"]:focus,
+        textarea:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 5px rgba(0, 90, 156, 0.3);
@@ -198,6 +198,35 @@
             margin: 0;
             font-size: 1.1em;
         }
+        
+        /* ##### NEUE STILE FÜR DEN KOMMENTARBEREICH ##### */
+        #comments-list {
+            margin-bottom: 30px;
+        }
+
+        .comment-item {
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: var(--dark-text);
+        }
+
+        .comment-date {
+            font-size: 0.8em;
+            color: #777;
+            margin-left: 10px;
+        }
+
+        .comment-text {
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
 
         footer {
             text-align: center;
@@ -207,33 +236,14 @@
             font-size: 0.9em;
         }
 
-        /* ############################################### */
-        /* ##### MOBILE OPTIMIERUNGEN (MEDIA QUERIES) #### */
-        /* ############################################### */
-
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2em; /* Kleinere Überschrift auf dem Handy */
-            }
-
-            header p {
-                font-size: 1.1em;
-            }
-            
-            .container {
-                padding: 15px; /* Weniger seitlicher Abstand */
-            }
-
-            .content-section {
-                padding: 20px; /* Weniger Abstand in den Boxen */
-            }
-
-            /* Die Richtig/Falsch-Boxen werden gestapelt statt nebeneinander */
-            .example {
-                flex-direction: column;
-            }
+            header h1 { font-size: 2.2em; }
+            header p { font-size: 1.1em; }
+            .slogan { font-size: 1.4em; margin-top: 20px; }
+            .container { padding: 15px; }
+            .content-section { padding: 20px; }
+            .example { flex-direction: column; }
         }
-
     </style>
 </head>
 <body>
@@ -295,6 +305,34 @@
             <p>Menschen haben unterzeichnet!</p>
         </section>
 
+        <section class="content-section" id="comment-section">
+            <h2>Kommentare & Meinungen</h2>
+            
+            <div id="comments-list">
+                <div class="comment-item">
+                    <p class="comment-author">Tobias Kremer <span class="comment-date">vor 2 Tagen</span></p>
+                    <p class="comment-text">Endlich sagt's mal einer! Dieses Komma sehe ich jeden Tag dutzendfach in meinen E-Mails. Super Initiative, habe direkt unterschrieben.</p>
+                </div>
+                <div class="comment-item">
+                    <p class="comment-author">Eric Windler <span class="comment-date">vor 5 Stunden</span></p>
+                    <p class="comment-text">Stark! Es sind genau diese Kleinigkeiten, die einen professionellen Text ausmachen. Danke für die klare Darstellung!</p>
+                </div>
+            </div>
+
+            <h3>Ihr Kommentar:</h3>
+            <form id="comment-form">
+                <div class="form-group">
+                    <label for="comment-name">Ihr Name</label>
+                    <input type="text" id="comment-name" name="comment-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment-body">Ihr Kommentar</label>
+                    <textarea id="comment-body" name="comment-body" required></textarea>
+                </div>
+                <button type="submit">Kommentar abschicken</button>
+            </form>
+        </section>
+
     </main>
 
     <footer>
@@ -305,20 +343,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('petition-form');
+            // ----- Code für die Petition -----
+            const petitionForm = document.getElementById('petition-form');
             const countElement = document.getElementById('signature-count');
-            
-            let currentCount = 14281;
+            let currentCount = 14283;
 
             function formatNumber(num) {
                 return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
             }
-
             countElement.textContent = formatNumber(currentCount);
 
-            form.addEventListener('submit', function(event) {
+            petitionForm.addEventListener('submit', function(event) {
                 event.preventDefault();
-
                 const vorname = document.getElementById('vorname').value;
                 const nachname = document.getElementById('nachname').value;
                 const email = document.getElementById('email').value;
@@ -326,10 +362,49 @@
                 if (vorname && nachname && email) {
                     currentCount++;
                     countElement.textContent = formatNumber(currentCount);
-                    form.reset();
+                    petitionForm.reset();
                     alert('Vielen Dank für Ihre Unterstützung!');
                 } else {
                     alert('Bitte füllen Sie alle Felder aus.');
+                }
+            });
+
+            // ----- NEUER CODE FÜR DIE KOMMENTARE -----
+            const commentForm = document.getElementById('comment-form');
+            const commentsList = document.getElementById('comments-list');
+            
+            commentForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const nameInput = document.getElementById('comment-name');
+                const bodyInput = document.getElementById('comment-body');
+                
+                const name = nameInput.value.trim();
+                const body = bodyInput.value.trim();
+
+                if (name && body) {
+                    // Neues Kommentar-Element erstellen
+                    const newComment = document.createElement('div');
+                    newComment.classList.add('comment-item');
+                    
+                    const authorP = document.createElement('p');
+                    authorP.classList.add('comment-author');
+                    authorP.innerHTML = `${name} <span class="comment-date">gerade eben</span>`;
+                    
+                    const textP = document.createElement('p');
+                    textP.classList.add('comment-text');
+                    textP.textContent = body;
+                    
+                    newComment.appendChild(authorP);
+                    newComment.appendChild(textP);
+                    
+                    // Kommentar oben in der Liste einfügen
+                    commentsList.prepend(newComment);
+                    
+                    // Formular zurücksetzen
+                    commentForm.reset();
+                } else {
+                    alert('Bitte geben Sie einen Namen und einen Kommentar ein.');
                 }
             });
         });
